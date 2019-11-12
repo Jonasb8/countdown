@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
 import {color} from '../../actions/colors/show'
 
 
@@ -8,10 +8,23 @@ class Timer extends React.Component {
         seconds: 40
     };
 
+
+    resetCountdown = () => {
+        let {
+            reset
+        } = this.props
+        console.log('reset', reset);
+        if (reset.success) {
+            this.setState({seconds:40})
+        }
+    }
+
     componentDidMount() {
+
         this.interval = setInterval(() => {
             if (this.state.seconds > 0) {
                 this.setState({ seconds : this.state.seconds - 1 });
+                this.resetCountdown() // to FIX
             }
         }, 1000);
     }
@@ -23,6 +36,7 @@ class Timer extends React.Component {
     }
 
     render() {
+        console.log('props->',this.props);
         const { seconds } = this.state;
         console.log(seconds);
 
@@ -38,6 +52,10 @@ class Timer extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        reset : state.reset.reset
+    }
+}
 
-
-export default Timer
+export default connect(mapStateToProps,null)(Timer)
