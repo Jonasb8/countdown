@@ -1,5 +1,7 @@
 import React from 'react'
-import moment from 'moment'
+
+import {color} from '../../actions/colors/show'
+
 
 class Timer extends React.Component {
     state = {
@@ -22,10 +24,11 @@ class Timer extends React.Component {
 
     render() {
         const { seconds } = this.state;
+        console.log(seconds);
 
         return (
             <div>
-                <div className="countdown">
+                <div className="countdown" style={{backgroundColor:color(seconds)}}>
                     {seconds}
                     <span> secondes</span>
                 </div>
@@ -34,5 +37,7 @@ class Timer extends React.Component {
         );
     }
 }
+
+
 
 export default Timer

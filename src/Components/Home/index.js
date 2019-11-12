@@ -9,7 +9,7 @@ import Title from '../Title/index'
 class Home extends React.Component {
     render(){
         return (
-            <div>
+            <div className="timerApp">
                 <Title/>
                 <Timer/>
             </div>
