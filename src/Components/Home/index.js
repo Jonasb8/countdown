@@ -6,13 +6,15 @@ import React from 'react'
 import Timer from '../Timer/index';
 import Title from '../Title/index'
 
-function Home() {
-    return (
-        <div>
-            <Title/>
-            <Timer/>
-        </div>
-    )
+class Home extends React.Component {
+    render(){
+        return (
+            <div>
+                <Title/>
+                <Timer/>
+            </div>
+        )
+    }
 }
 
 export default Home

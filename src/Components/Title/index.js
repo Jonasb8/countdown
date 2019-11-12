@@ -2,7 +2,7 @@ import React from 'react'
 
 function Title() {
     return(
-        <p>Combien de temps reste-t-il ?</p>
+        <h3>Combien de temps reste-t-il ?</h3>
     )
 }
 
